@@ -2,11 +2,13 @@ pipeline {
 	agent {
 	    docker {
             image 'maven:3.6-jdk-11'
-            args '-u root'
         }
 	}
 	stages {
 		stage('Build') {
+		    environment {
+		        HOME="."
+		    }
 			steps {
 				 checkout([$class:'GitSCM', branches: [[name:'*/main']], userRemoteConfigs:[[url:'https://github.com/VasylTkachov/jenkins_test.git']]])
 				 sh 'mvn -B clean install'
