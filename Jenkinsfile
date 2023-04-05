@@ -4,9 +4,6 @@ pipeline {
             image 'maven:3.6-jdk-17'
         }
 	}
-	tools {
-	    docker 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-	}
 	stages {
 		stage('Build') {
 			steps {
