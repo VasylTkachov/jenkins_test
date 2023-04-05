@@ -6,9 +6,6 @@ pipeline {
 	}
 	stages {
 		stage('Build') {
-		    environment {
-		        HOME="."
-		    }
 			steps {
 				 checkout([$class:'GitSCM', branches: [[name:'*/main']], userRemoteConfigs:[[url:'https://github.com/VasylTkachov/jenkins_test.git']]])
 				 sh 'mvn -B clean install'
