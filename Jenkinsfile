@@ -8,8 +8,6 @@ pipeline {
 		stage('Build') {
 			steps {
 				 checkout([$class:'GitSCM', branches: [[name:'*/main']], userRemoteConfigs:[[url:'https://github.com/VasylTkachov/jenkins_test.git']]])
-				 sh 'sudo su'
-				 sh 'echo 1234'
 				 sh 'apt-get update'
 				 sh 'apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release'
 				 sh 'curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg'
