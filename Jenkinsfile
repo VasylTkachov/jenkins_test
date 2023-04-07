@@ -2,7 +2,7 @@ pipeline {
 	agent {
 	    docker {
             image 'maven:3.6-jdk-11'
-            args '-u root:sudo'
+            args '-u root:sudo -v /var/run/docker.sock:/var/run/docker.sock'
         }
 	}
 	stages {
